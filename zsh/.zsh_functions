@@ -1,0 +1,76 @@
+# TODO
+# Need to tidy these up as a lib
+function open_pipeline {
+  local remoteUrl=$(git config --get remote.origin.url)
+  local repoPath=${${remoteUrl/git@gitlab.com:/""}/.git/""}
+  local currentBranch=$(git rev-parse --abbrev-ref HEAD)
+  local pipelineUrl="https://gitlab.com/${repoPath}/-/pipelines?page=1&scope=all&ref=${currentBranch}"
+
+  echo $pipelineUrl
+  open $pipelineUrl
+}
+
+function open_mr {
+  local remoteUrl=$(git config --get remote.origin.url)
+  local repoPath=${${remoteUrl/git@gitlab.com:/""}/.git/""}
+  local gitlabUser=$(curl "https://gitlab.com/api/v4/user?private_token=${GITLAB_READ_TOKEN}" | jq ".username" | tr -d '"')
+
+  local pipelineUrl="https://gitlab.com/${repoPath}/-/merge_requests?scope=all&state=opened&author_username=${gitlabUser}"
+
+  echo $pipelineUrl
+  open $pipelineUrl
+}
+
+function open_compare {
+  local remoteUrl=$(git config --get remote.origin.url)
+  local repoPath=${${remoteUrl/git@gitlab.com:/""}/.git/""}
+  local mainBranch=$(git_main_branch)
+  local currentBranch=$(git rev-parse --abbrev-ref HEAD)
+
+  local pipelineUrl="https://gitlab.com/${repoPath}/-/compare/${mainBranch}...${currentBranch}"
+
+  echo $pipelineUrl
+  open $pipelineUrl
+}
+
+function define {
+ dict -d gcide $1 | cat
+}
+
+# TODO
+# Look into some watch functionality for when it sees one of these files.
+# https://github.com/nvm-sh/nvm#zsh
+function set_node_version {
+  if [ -e .nvmrc ]; then
+    local nvmVersion=$(cat .nvmrc)
+    echo "Found .nvmrc - using ${nvmVersion}"
+    pnpm env use --global ${nvmVersion}
+
+  elif [ -e .node-version ]; then
+    local nodeVersion=$(cat .node-version)
+    echo "Found .node-version - using ${nodeVersion}"
+    pnpm env use --global ${nodeVersion}
+
+  elif [ -e package.json ]; then
+    local pkgVersion=$(cat package.json | jq '.engines.node')
+    if [ $pkgVersion != 'null' ]; then
+      echo "Found node engine in package.json - using ${pkgVersion}"
+      pnpm env use --global ${pkgVersion}
+    else
+      echo "No node engine specified in package.json"
+    fi
+  else
+    echo "I can't find a node version to set."
+  fi 
+}
+
+# Find and replace in vim
+# TODO
+# I'd like to pipe the errors of this to /dev/null to silence them, but had some issues
+# https://askubuntu.com/questions/589647/search-and-replace-from-terminal-but-with-confirmation 
+function find_replace {
+  local find=$1
+  local replace=$2
+
+  nvim "+bufdo %s/${find}/${replace}/gc | up" '+q' -- $(\rg $find -il)
+}

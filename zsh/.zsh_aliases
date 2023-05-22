@@ -1,0 +1,27 @@
+alias vim=nvim
+alias c=clear
+alias cat=bat
+alias ls="ls -alGh"
+alias rg="rg --hidden"
+# Force tmux to assume the terminal supports 256 colours.
+alias tmux="tmux -2"
+alias x="exit -f"
+alias zshrc="$EDITOR ~/.zshrc"
+alias tmuxrc="$EDITOR ~/.tmux.conf"
+alias vimrc="$EDITOR ~/.config/nvim/init.lua"
+alias DOTFILES_DIR="$HOME/dotfiles"
+alias grep="grep --color"
+alias zshalias="$EDITOR ~/.zsh_aliases"
+alias tf="terraform"
+alias wiki="nvim -c ':VimwikiIndex'"
+# Connect to my headphones and turn off bluetooth
+alias bt="blueutil -p TOGGLE"
+alias bc="blueutil -p 1 && blueutil --connect cc-98-8b-b8-22-60"
+alias update="sh $HOME/Repos/installation/update.sh"
+
+alias op="bash $HOME/Repos/scripts/open_gitlab_latest_pipeline.sh"
+alias ot="bash $HOME/Repos/scripts/open_jira_ticket.sh"
+alias omr="open_mr"
+alias oc="open_compare"
+alias python="python3"
+alias sed="gsed"

@@ -2,7 +2,7 @@ alias vim=nvim
 alias c=clear
 alias cat=bat
 alias ls="ls -alGh"
-alias rg="rg --hidden"
+alias rg="rg --hidden -g '!.git' -g '!yarn.lock'"
 # Force tmux to assume the terminal supports 256 colours.
 alias tmux="tmux -2"
 alias x="exit -f"
@@ -21,8 +21,9 @@ alias update="sh $HOME/Repos/installation/update.sh"
 
 alias op="bash $HOME/Repos/scripts/open_gitlab_latest_pipeline.sh"
 alias ot="bash $HOME/Repos/scripts/open_jira_ticket.sh"
+alias s="saam"
 alias omr="open_mr"
 alias oc="open_compare"
 alias python="python3"
 alias sed="gsed"
-alias fgs="select_job"
+# alias fgs="select_job"

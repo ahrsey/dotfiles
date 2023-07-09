@@ -4,7 +4,7 @@ local function on_attach(bufnr)
 	local gs = package.loaded.gitsigns
 
 	nmap {
-		"c]",
+		"]c",
 		function()
 			vim.schedule(function() gs.next_hunk() end)
 			return '<Ignore>'
@@ -13,7 +13,7 @@ local function on_attach(bufnr)
 	}
 
 	nmap {
-		"c[",
+		"[c",
 		function()
 			vim.schedule(function() gs.prev_hunk() end)
 			return '<Ignore>'

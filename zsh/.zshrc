@@ -141,4 +141,9 @@ bindkey '^[[B' history-substring-search-down
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
+# Set kitty wallpapers, should make this dynamic and random in the future
+if [[ -z "$TMUX" ]]; then
+		kitty @ set-background-image ~/Pictures/wallpapers-v3/KXYEwkl.png
+fi
+
 source /Users/RCargill/.docker/init-zsh.sh || true # Added by Docker Desktop

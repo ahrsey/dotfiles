@@ -1,3 +1,14 @@
+-- TODO
+-- Issue with treesitter hightlighting on `class.chaining`
+-- get the [f and [f for files
+-- plug in vimwiki
+-- I need an easier way to search files from within vim
+-- I need to setup lsp for vim api's
+-- Issue with auto indenting, I'd like to use the default
+-- Investigate the treesitter completions, current the enter one isn't great
+-- There is an issue with `gqq` auto indenting
+-- It would be cool to be able to set my window with transparency and a background 
+-- image instead of using the desktop
 require("rc.settings")
 require("rc.grep")
 -- require("rc.files")

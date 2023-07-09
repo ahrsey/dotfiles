@@ -1,6 +1,6 @@
-# Personal dotfiles
+# My dotfiles
 
-Dotfiles managed via stow, and used in my install and update scripts.
+Using stow and my installation script, which needs a rewrite
 
 # TODO
 

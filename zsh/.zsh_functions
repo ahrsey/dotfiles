@@ -75,6 +75,8 @@ function find_replace {
   nvim "+bufdo %s/${find}/${replace}/gc | up" '+q' -- $(\rg $find -il)
 }
 
+# TODO
+# not working yet
 function select_job {
 	fg $(jobs | fzf | awk '{print $1}' | sed 's/[^0-9]//g')
 }

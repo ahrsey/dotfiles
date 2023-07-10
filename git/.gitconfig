@@ -1,6 +1,6 @@
 [user]
     email = richard.cargill@pm.me
-    name = rrc
+    name = rc
 
 [includeIf "gitdir:~/Work/"]
     path = ~/Work/.gitconfig
@@ -34,4 +34,3 @@
     defaultBranch = main
 [pull]
     rebase = true
-

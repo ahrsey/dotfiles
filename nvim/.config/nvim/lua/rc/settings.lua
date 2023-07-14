@@ -9,9 +9,13 @@ global.mapleader = " "
 options.tabstop = 2
 options.softtabstop = 2
 options.shiftwidth = 2
+options.expandtab = true
 
 options.swapfile = false
+
 options.hlsearch = true
+options.smartcase = true
+options.ignorecase = true
 
 window.relativenumber = true
 window.number = true

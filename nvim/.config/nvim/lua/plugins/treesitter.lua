@@ -5,7 +5,7 @@ local function handler()
 			enabled = true
 		},
     incremental_selection = {
-      enable = true,
+      enable = false,
       keymaps = {
         init_selection = "<cr>",
         node_incremental = "<tab>",

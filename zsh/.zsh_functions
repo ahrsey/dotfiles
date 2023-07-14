@@ -1,15 +1,3 @@
-# TODO
-# Need to tidy these up as a lib
-function open_pipeline {
-  local remoteUrl=$(git config --get remote.origin.url)
-  local repoPath=${${remoteUrl/git@gitlab.com:/""}/.git/""}
-  local currentBranch=$(git rev-parse --abbrev-ref HEAD)
-  local pipelineUrl="https://gitlab.com/${repoPath}/-/pipelines?page=1&scope=all&ref=${currentBranch}"
-
-  echo $pipelineUrl
-  open $pipelineUrl
-}
-
 function open_mr {
   local remoteUrl=$(git config --get remote.origin.url)
   local repoPath=${${remoteUrl/git@gitlab.com:/""}/.git/""}
@@ -73,10 +61,4 @@ function find_replace {
   local replace=$2
 
   nvim "+bufdo %s/${find}/${replace}/gc | up" '+q' -- $(\rg $find -il)
-}
-
-# TODO
-# not working yet
-function select_job {
-	fg $(jobs | fzf | awk '{print $1}' | sed 's/[^0-9]//g')
 }

@@ -28,6 +28,7 @@ function define {
 # TODO
 # Look into some watch functionality for when it sees one of these files.
 # https://github.com/nvm-sh/nvm#zsh
+# Look into updating this to not use anything older than node 16
 function set_node_version {
   if [ -e .nvmrc ]; then
     local nvmVersion=$(cat .nvmrc)

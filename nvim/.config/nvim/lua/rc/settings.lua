@@ -20,7 +20,7 @@ options.ignorecase = true
 window.relativenumber = true
 window.number = true
 
-options.mouse = "n"
+options.mouse = ""
 options.breakindent = true
 
 options.scrolloff = 8
@@ -28,7 +28,7 @@ options.scrolloff = 8
 options.updatetime = 250
 window.signcolumn = "yes"
 
-window.colorcolumn = "80"
+-- window.colorcolumn = "80"
 window.cursorline = true
 window.cursorcolumn = true
 

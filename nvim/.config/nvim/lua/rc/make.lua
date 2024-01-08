@@ -1,0 +1,4 @@
+-- Update different make programs based on language
+-- vim.cmd([[
+--   autocmd FileType c,cpp setlocal makeprg=make
+-- ]])

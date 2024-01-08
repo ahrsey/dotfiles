@@ -24,6 +24,7 @@ nmap {
 	function()
 		local current_word = vim.fn.expand("<cword>")
 		vim.cmd("grep " .. current_word .. " .")
+    vim.cmd("cwindow")
 	end,
 }
 

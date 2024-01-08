@@ -4,6 +4,7 @@
 
 [includeIf "gitdir:~/Work/"]
   path = ~/Work/.gitconfig
+  hooksPath = no-hooks
 
 [core]
   pager = delta

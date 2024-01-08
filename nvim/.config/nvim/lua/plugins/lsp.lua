@@ -1,7 +1,5 @@
 local nmap = require("rc.keymap").nmap
 
--- TODO
--- https://github.com/jose-elias-alvarez/null-ls.nvim
 -- cmp keymaps
 local function lspconfig_handler()
   require("mason").setup()
@@ -10,13 +8,12 @@ local function lspconfig_handler()
     clangd = {},
     tsserver = {},
     pylsp = {},
-    pyright = {},
     bashls = {},
 
     lua_ls = {
       Lua = {
-	workspace = { checkThirdParty = false },
-	telemetry = { enable = false },
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
       },
     },
   }
@@ -83,9 +80,9 @@ local function lspconfig_handler()
   mason_lspconfig.setup_handlers {
     function(server_name)
       require("lspconfig")[server_name].setup {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = servers[server_name],
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
       }
     end,
   }
@@ -97,7 +94,7 @@ local function cmp_handler()
   cmp.setup {
     snippet = {
       expand = function(args)
-	luasnip.lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     sources = {
@@ -107,26 +104,26 @@ local function cmp_handler()
     },
     mapping = cmp.mapping.preset.insert {
       ["<CR>"] = cmp.mapping.confirm {
-	behavior = cmp.ConfirmBehavior.Replace,
-	select = true,
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
       },
       ["<Tab>"] = cmp.mapping(function(fallback)
-	if cmp.visible() then
-	  cmp.select_next_item()
-	elseif luasnip.expand_or_jumpable() then
-	  luasnip.expand_or_jump()
-	else
-	  fallback()
-	end
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-	if cmp.visible() then
-	  cmp.select_prev_item()
-	elseif luasnip.jumpable(-1) then
-	  luasnip.jump(-1)
-	else
-	  fallback()
-	end
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
       end, { "i", "s" }),
     }
   }
@@ -147,8 +144,8 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     config = function()
       require("mason-tool-installer").setup({
-	auto_update = true,
-	debounce_hours = 24
+        auto_update = true,
+        debounce_hours = 24
       })
     end,
   },
@@ -166,4 +163,9 @@ return {
   },
   "hrsh7th/cmp-nvim-lsp",
   { "saadparwaiz1/cmp_luasnip", dependencies = { "L3MON4D3/LuaSnip" } },
+  -- { "folke/neodev.nvim",
+  --   config = function()
+  --     require("neodev").setup({})
+  --   end
+  -- }
 }

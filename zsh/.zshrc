@@ -14,7 +14,9 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 export GOPATH=$HOME/go
-export GOROOT="/opt/homebrew/Cellar/go/1.19.5/libexec"
+export GOROOT="$(brew --prefix golang)/libexec"
+export GOBIN=$GOPATH/bin
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
@@ -75,7 +77,7 @@ setopt globdots # add hidden files to glob matches using *
 setopt automenu
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-export HISTSIZE=100000
+export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE
 export HISTFILE=~/.zsh_history
 
@@ -142,8 +144,8 @@ bindkey '^[[B' history-substring-search-down
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # Set kitty wallpapers, should make this dynamic and random in the future
-if [[ -z "$TMUX" ]]; then
-		kitty @ set-background-image ~/Pictures/wallpapers-v3/KXYEwkl.png
-fi
+# if [[ -z "$TMUX" ]]; then
+		# kitty @ set-background-image ~/Pictures/wallpapers-v3/KXYEwkl.png
+# fi
 
 source /Users/RCargill/.docker/init-zsh.sh || true # Added by Docker Desktop

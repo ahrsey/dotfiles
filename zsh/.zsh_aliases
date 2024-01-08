@@ -2,23 +2,27 @@ alias vim=nvim
 alias c=clear
 alias cat=bat
 alias ls="ls -alGh"
-alias rg="rg --hidden -g '!.git' -g '!yarn.lock'"
+alias rg="rg --hidden -g '!.git' -g '!yarn.lock' --"
 alias tmux="tmux -2"
 alias x="exit -f"
 alias grep="grep --color"
 alias tf="terraform"
 alias wiki="nvim -c ':VimwikiIndex'"
 
-alias update="sh $HOME/Repos/installation/update.sh"
-alias op="bash $HOME/Repos/scripts/open_gitlab_latest_pipeline.sh"
-alias ops="bash $HOME/Repos/scripts/open_pipelines.sh"
-alias ot="bash $HOME/Repos/scripts/open_jira_ticket.sh"
-alias s="saam"
-alias omru="bash $HOME/Repos/scripts/open_mr_by_user.sh"
+alias se="$HOME/Repos/scripts/fuzzy_search_projects.sh"
+alias update="$HOME/Repos/installation/update.sh"
+alias op="$HOME/Repos/scripts/open_gitlab_latest_pipeline.sh"
+alias ops="$HOME/Repos/scripts/open_pipelines.sh"
+alias ot="$HOME/Repos/scripts/open_jira_ticket.sh"
+alias omru="$HOME/Repos/scripts/open_mr_by_user.sh"
+alias ocf="$HOME/Repos/scripts/open_cloudformation.sh"
+
 alias omr="open_mr"
 alias oc="open_compare"
 alias python="python3"
 alias sed="gsed"
+
+# alias s="saam"
 
 # Connect to my headphones and turn off bluetooth
 alias bt="blueutil -p TOGGLE"
@@ -34,3 +38,10 @@ alias DOTFILES_DIR="$HOME/dotfiles"
 alias SCRIPTS_DIR="$HOME/Repos/scripts"
 alias WORK="$HOME/Work"
 alias REPOS="$HOME/Repos"
+
+alias gsf="git show --name-only --pretty=format:''"
+# alias docker="podman"
+alias auto="git add -A && git commit -m 'autocommit' && git push"
+# alias node=/opt/homebrew/bin/node
+alias t="find . -not -path '*node_modules*' -not -path '*git*'"
+

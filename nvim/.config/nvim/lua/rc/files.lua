@@ -42,6 +42,13 @@ local function create_dir_file_cache()
 	end
 end
 
+vim.api.nvim_create_user_command(
+  'E',                   -- Command name
+  function()                      -- Command action (a Lua function)
+    vim.cmd 'Explorer'
+  end,
+  { nargs = 0 }                   -- Command options, e.g., number of arguments
+)
 -- TODO
 -- nmap {
 -- 	"[f",
